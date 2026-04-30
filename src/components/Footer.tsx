@@ -26,44 +26,32 @@ const icons = {
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-mint/10 bg-navy pb-10 pt-6">
+    <footer
+      className="relative pb-10 pt-6"
+      style={{ borderTop: '1px solid rgba(167,139,250,0.12)', background: 'rgba(3,7,18,0.8)' }}
+    >
       <div className="container-x flex flex-col items-start justify-between gap-4 text-xs text-fg-muted md:flex-row md:items-center">
         <span className="font-mono">{profile.footer}</span>
-        <div className="flex items-center gap-4">
-          <a
-            aria-label="Email"
-            href={profile.socials.email}
-            className="text-fg-muted transition hover:text-mint"
-          >
-            {icons.email}
-          </a>
-          <a
-            aria-label="Github"
-            href={profile.socials.github}
-            target="_blank"
-            rel="noreferrer"
-            className="text-fg-muted transition hover:text-mint"
-          >
-            {icons.github}
-          </a>
-          <a
-            aria-label="LinkedIn"
-            href={profile.socials.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="text-fg-muted transition hover:text-mint"
-          >
-            {icons.linkedin}
-          </a>
-          <a
-            aria-label="X / Twitter"
-            href={profile.socials.x}
-            target="_blank"
-            rel="noreferrer"
-            className="text-fg-muted transition hover:text-mint"
-          >
-            {icons.x}
-          </a>
+        <div className="flex items-center gap-5">
+          {(
+            [
+              { key: 'email', href: profile.socials.email, label: 'Email' },
+              { key: 'github', href: profile.socials.github, label: 'GitHub' },
+              { key: 'linkedin', href: profile.socials.linkedin, label: 'LinkedIn' },
+              { key: 'x', href: profile.socials.x, label: 'X' },
+            ] as const
+          ).map((s) => (
+            <a
+              key={s.key}
+              aria-label={s.label}
+              href={s.href}
+              target={s.href.startsWith('mailto') ? undefined : '_blank'}
+              rel="noreferrer"
+              className="text-fg-muted transition hover:text-mint"
+            >
+              {icons[s.key]}
+            </a>
+          ))}
         </div>
       </div>
     </footer>

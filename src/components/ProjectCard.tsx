@@ -4,11 +4,7 @@ const linkIcons: Record<ProjectLink['icon'], JSX.Element> = {
   globe: (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
       <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
-      <path
-        d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
+      <path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" stroke="currentColor" strokeWidth="2" />
     </svg>
   ),
   github: (
@@ -38,39 +34,45 @@ const linkIcons: Record<ProjectLink['icon'], JSX.Element> = {
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group flex flex-col rounded-2xl border border-mint/10 bg-navy-light p-5 shadow-lg shadow-navy-deep/40 transition hover:-translate-y-1 hover:border-mint/40 hover:shadow-xl hover:shadow-mint/5">
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-mint/10 bg-gradient-to-br from-navy-deep via-navy to-navy-light">
+    <article className="glass-card group flex flex-col p-5 transition-all duration-300">
+      {/* Illustration / preview area */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/6"
+        style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(6,182,212,0.08) 100%)' }}
+      >
         <div className="absolute inset-0 grid place-items-center">
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint/40">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint/30">
             {project.title}
           </span>
         </div>
-        <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
-          <div className="absolute inset-0 bg-gradient-to-br from-mint/0 via-mint/0 to-mint/10" />
-        </div>
+        {/* Hover glow */}
+        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{ background: 'radial-gradient(circle at 50% 50%, rgba(167,139,250,0.08) 0%, transparent 70%)' }}
+        />
       </div>
 
       <div className="mt-5 flex flex-1 flex-col">
-        <h3 className="text-lg font-bold text-fg group-hover:text-mint">{project.title}</h3>
+        <h3 className="text-lg font-bold text-fg transition group-hover:text-mint">{project.title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-fg-muted">{project.description}</p>
 
+        {/* Tech tags */}
         <div className="mt-4 flex flex-wrap gap-1.5">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-md border border-mint/20 bg-mint/5 px-2 py-0.5 font-mono text-[11px] font-medium text-mint"
+              className="rounded-md border border-mint/20 bg-mint/5 px-2 py-0.5 font-mono text-[11px] font-medium text-mint/80"
             >
               {tag}
             </span>
           ))}
         </div>
 
+        {/* Links */}
         <div className="mt-5 flex flex-wrap gap-2">
           {project.links.map((link) => (
             <a
               key={link.label + link.href}
               href={link.href}
-              className="inline-flex items-center gap-2 rounded-full border border-mint/30 bg-transparent px-3 py-1.5 text-xs font-medium text-mint transition hover:bg-mint/10"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4 px-3 py-1.5 text-xs font-medium text-fg-muted transition hover:border-mint/40 hover:text-mint"
             >
               {linkIcons[link.icon]}
               {link.label}

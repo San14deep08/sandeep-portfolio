@@ -1,3 +1,4 @@
+import { AuroraBackground } from './components/AuroraBackground'
 import { Contact } from './components/Contact'
 import { Experience } from './components/Experience'
 import { FeaturedProjects } from './components/FeaturedProjects'
@@ -10,7 +11,8 @@ import { ThreePillars } from './components/ThreePillars'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-navy">
+    <div className="relative min-h-screen bg-navy">
+      <AuroraBackground />
       <Navbar />
       <Hero />
       <ThreePillars />
