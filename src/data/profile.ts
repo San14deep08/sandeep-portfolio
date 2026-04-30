@@ -1,13 +1,14 @@
 export const profile = {
   firstName: 'Sandeep',
   fullName: 'Sandeep Kumar Mahto',
-  greeting: "Hello, I'm Sandeep!",
+  greeting: "Hello, I'm Sandeep.",
   headline: {
-    leading: 'I build full-stack web applications',
-    trailing: 'with cloud-native expertise',
+    leading: "I don't just build software.",
+    trailing: 'I build software that thinks.',
   },
+  badge: 'Full-Stack Engineer · Cloud-Native Architect · Agentic AI Builder',
   blurb:
-    'I am a Full-Stack & Cloud Engineer. I specialize in building scalable, secure, and cloud-native digital products that deliver exceptional user experiences.',
+    'I architect end-to-end digital products — from scalable cloud infrastructure and clean production code, to autonomous AI agents that get work done without human intervention. Built to perform. Designed to last. Intelligent enough to operate on their own.',
   socials: {
     email: 'mailto:sandeep88@gmail.com',
     github: 'https://github.com/San14deep08',

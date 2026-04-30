@@ -1,7 +1,11 @@
-const phrase = 'Full Stack DEVELOPER'
+const phrases = [
+  'Full-Stack Engineering',
+  'Cloud-Native Architecture',
+  'Agentic AI Systems',
+]
 
 export function Marquee() {
-  const items = Array.from({ length: 8 }).map(() => phrase)
+  const items = Array.from({ length: 4 }).flatMap(() => phrases)
   return (
     <div className="overflow-hidden border-y border-mint/10 bg-navy-deep py-10 text-fg">
       <div className="flex w-max animate-marquee whitespace-nowrap">

@@ -6,12 +6,14 @@ import { Hero } from './components/Hero'
 import { Marquee } from './components/Marquee'
 import { Navbar } from './components/Navbar'
 import { PersonalProjects } from './components/PersonalProjects'
+import { ThreePillars } from './components/ThreePillars'
 
 export default function App() {
   return (
     <div className="min-h-screen bg-navy">
       <Navbar />
       <Hero />
+      <ThreePillars />
       <FeaturedProjects />
       <Experience />
       <PersonalProjects />
