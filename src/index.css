@@ -26,7 +26,15 @@
     @apply inline-flex items-center rounded-full border border-mint/30 bg-mint/10 px-3 py-1 text-xs font-medium text-mint;
   }
   .pill-dark {
-    @apply inline-flex items-center rounded-full border border-mint/25 bg-mint/8 px-3 py-0.5 font-mono text-[11px] text-mint;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    background: rgba(167, 139, 250, 0.08);
+    padding: 2px 12px;
+    font-family: var(--font-mono, monospace);
+    font-size: 11px;
+    color: #a78bfa;
   }
 
   /* Eyebrow accent */
