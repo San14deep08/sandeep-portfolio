@@ -1,3 +1,4 @@
+import { About } from './components/About'
 import { AuroraBackground } from './components/AuroraBackground'
 import { Contact } from './components/Contact'
 import { Experience } from './components/Experience'
@@ -7,6 +8,7 @@ import { Hero } from './components/Hero'
 import { Marquee } from './components/Marquee'
 import { Navbar } from './components/Navbar'
 import { PersonalProjects } from './components/PersonalProjects'
+import { TechStack } from './components/TechStack'
 import { ThreePillars } from './components/ThreePillars'
 
 export default function App() {
@@ -15,9 +17,11 @@ export default function App() {
       <AuroraBackground />
       <Navbar />
       <Hero />
+      <About />
       <ThreePillars />
-      <FeaturedProjects />
+      <TechStack />
       <Experience />
+      <FeaturedProjects />
       <PersonalProjects />
       <Marquee />
       <Contact />
