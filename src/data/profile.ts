@@ -13,7 +13,7 @@ export const profile = {
     email: 'mailto:sandeep88@gmail.com',
     github: 'https://github.com/San14deep08',
     linkedin: 'https://www.linkedin.com/in/mahtosandeep/',
-    youtube: 'https://www.youtube.com/@DevWithAI',
+    youtube: 'https://www.youtube.com/@sandevwithai',
     x: 'https://x.com/',
   },
   footer: '© 2026 Sandeep Kumar Mahto',

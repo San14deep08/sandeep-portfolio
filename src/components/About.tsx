@@ -1,3 +1,5 @@
+import profilePhoto from '../assets/profile.jpg'
+
 export function About() {
   const facts = [
     { icon: '📍', text: 'Based in India' },
@@ -29,17 +31,11 @@ export function About() {
                   background: 'rgba(255,255,255,0.03)',
                 }}
               >
-                {/* Placeholder — replace img src when photo is ready */}
-                <div className="flex h-full w-full flex-col items-center justify-center gap-4">
-                  <div
-                    className="flex h-24 w-24 items-center justify-center rounded-full text-4xl font-black"
-                    style={{ background: 'linear-gradient(135deg,#a78bfa,#22d3ee)', color: '#030712' }}
-                  >
-                    S
-                  </div>
-                  <p className="font-mono text-xs text-fg-muted">Sandeep Kumar Mahto</p>
-                  <p className="font-mono text-[10px] text-fg-muted opacity-60">Photo coming soon</p>
-                </div>
+                <img
+                  src={profilePhoto}
+                  alt="Sandeep Kumar Mahto"
+                  className="h-full w-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                />
 
                 {/* Corner accent */}
                 <div
