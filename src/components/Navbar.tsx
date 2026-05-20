@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -24,7 +25,7 @@ export function Navbar() {
   /* Scroll-spy: highlight active section */
   useEffect(() => {
     const onScroll = () => {
-      const ids = ['about', 'experience', 'projects', 'skills', 'contact']
+      const ids = ['about', 'experience', 'projects', 'skills', 'gallery', 'contact']
       const offset = 120
       let current = ''
       for (const id of ids) {
@@ -77,19 +78,33 @@ export function Navbar() {
 
           {/* Desktop nav links */}
           <nav className="hidden items-center gap-1 md:flex">
-            {NAV_LINKS.map(({ label, href }) => (
-              <a
-                key={href}
-                href={href}
-                className="rounded-lg px-4 py-2 font-mono text-xs tracking-wider transition-all duration-200"
-                style={{
-                  color: active === href.slice(1) ? '#a78bfa' : '#94a3b8',
-                  background: active === href.slice(1) ? 'rgba(167,139,250,0.1)' : 'transparent',
-                }}
-              >
-                {label}
-              </a>
-            ))}
+            {NAV_LINKS.map(({ label, href }) => {
+              const isActive = active === href.slice(1)
+              return (
+                <a
+                  key={href}
+                  href={href}
+                  className="relative rounded-lg px-4 py-2 font-mono text-xs tracking-wider transition-all duration-200"
+                  style={{
+                    color: isActive ? '#a78bfa' : '#94a3b8',
+                    background: isActive ? 'rgba(167,139,250,0.08)' : 'transparent',
+                  }}
+                >
+                  {label}
+                  {/* Glowing underline indicator */}
+                  <span
+                    className="absolute bottom-0.5 left-1/2 -translate-x-1/2 rounded-full transition-all duration-300"
+                    style={{
+                      width: isActive ? '20px' : '0px',
+                      height: '2px',
+                      background: 'linear-gradient(90deg, #7c3aed, #22d3ee)',
+                      boxShadow: isActive ? '0 0 6px rgba(167,139,250,0.8)' : 'none',
+                      opacity: isActive ? 1 : 0,
+                    }}
+                  />
+                </a>
+              )
+            })}
           </nav>
 
           {/* Desktop right side */}
@@ -118,6 +133,21 @@ export function Navbar() {
                 <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v15h-4V8zm7 0h3.83v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.66 4.8 6.13V23h-4V14.9c0-1.93-.04-4.42-2.7-4.42-2.7 0-3.11 2.1-3.11 4.27V23h-4V8z" />
               </svg>
             </a>
+            {/* Resume */}
+            <a
+              href="/resume.pdf"
+              download="Sandeep_Kumar_Mahto_Resume.pdf"
+              aria-label="Download Resume"
+              className="flex items-center gap-1.5 rounded-full border border-mint/30 px-4 py-2 font-mono text-xs text-mint transition-all hover:border-mint/60 hover:bg-mint/10"
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Resume
+            </a>
+
             {/* Hire Me */}
             <a
               href="#contact"
@@ -165,20 +195,24 @@ export function Navbar() {
             }}
             onClick={e => e.stopPropagation()}
           >
-            {NAV_LINKS.map(({ label, href }) => (
-              <a
-                key={href}
-                href={href}
-                onClick={closeDrawer}
-                className="rounded-xl px-4 py-3.5 font-mono text-sm tracking-wider transition-all"
-                style={{
-                  color: active === href.slice(1) ? '#a78bfa' : '#94a3b8',
-                  background: active === href.slice(1) ? 'rgba(167,139,250,0.1)' : 'transparent',
-                }}
-              >
-                {label}
-              </a>
-            ))}
+            {NAV_LINKS.map(({ label, href }) => {
+              const isActive = active === href.slice(1)
+              return (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={closeDrawer}
+                  className="flex items-center gap-2 rounded-xl px-4 py-3.5 font-mono text-sm tracking-wider transition-all"
+                  style={{
+                    color: isActive ? '#a78bfa' : '#94a3b8',
+                    background: isActive ? 'rgba(167,139,250,0.1)' : 'transparent',
+                    borderLeft: isActive ? '2px solid #a78bfa' : '2px solid transparent',
+                  }}
+                >
+                  {label}
+                </a>
+              )
+            })}
 
             <div
               className="mt-4 flex gap-4 border-t pt-4"

@@ -1,6 +1,8 @@
 import profilePhoto from '../assets/profile.jpg'
+import { useFadeIn } from '../hooks/useFadeIn'
 
 export function About() {
+  const ref = useFadeIn<HTMLElement>()
   const facts = [
     { icon: '📍', text: 'Based in India' },
     { icon: '💼', text: 'Open to Opportunities' },
@@ -9,7 +11,7 @@ export function About() {
   ]
 
   return (
-    <section id="about" className="relative py-20 md:py-28">
+    <section ref={ref} id="about" className="relative py-20 md:py-28">
       <div className="absolute inset-0 -z-10" style={{ background: 'rgba(3,7,18,0.45)' }} />
 
       <div className="container-x">

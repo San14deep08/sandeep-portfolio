@@ -1,8 +1,10 @@
 import { experiences } from '../data/experience'
+import { useFadeIn } from '../hooks/useFadeIn'
 
 export function Experience() {
+  const ref = useFadeIn<HTMLElement>()
   return (
-    <section id="experience" className="relative py-20 text-fg md:py-28">
+    <section ref={ref} id="experience" className="relative py-20 text-fg md:py-28">
       {/* Subtle section bg to improve text legibility */}
       <div className="absolute inset-0 -z-10" style={{ background: 'rgba(3,7,18,0.55)' }} />
 
@@ -22,8 +24,22 @@ export function Experience() {
               <div className="glass-card p-6 transition-all duration-300">
                 <h3 className="text-lg font-bold text-fg md:text-xl">
                   {exp.role}
-                  <span className="text-mint"> @ {exp.company}</span>
-                  <span className="ml-1 inline-block text-mint/50">↗</span>
+                  {exp.link ? (
+                    <a
+                      href={exp.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-mint transition-opacity hover:opacity-75"
+                    >
+                      {' @ '}{exp.company}
+                      <span className="text-mint/50">↗</span>
+                    </a>
+                  ) : (
+                    <>
+                      <span className="text-mint"> @ {exp.company}</span>
+                      <span className="ml-1 inline-block text-mint/50">↗</span>
+                    </>
+                  )}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-fg-muted">{exp.description}</p>
                 <div className="mt-4 flex flex-wrap gap-1.5">

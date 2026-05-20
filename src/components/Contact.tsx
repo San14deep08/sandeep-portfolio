@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { profile } from '../data/profile'
+import { useFadeIn } from '../hooks/useFadeIn'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const WEB3FORMS_KEY = '568ed326-e397-49d4-b06a-ea5192098777'
 
 export function Contact() {
+  const ref = useFadeIn<HTMLElement>()
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [status, setStatus] = useState<Status>('idle')
 
@@ -51,7 +53,7 @@ export function Contact() {
   ]
 
   return (
-    <section id="contact" className="neural-grid relative overflow-hidden py-24 md:py-32">
+    <section ref={ref} id="contact" className="neural-grid relative overflow-hidden py-24 md:py-32">
       <div className="absolute inset-0 -z-10" style={{ background: 'rgba(3,7,18,0.4)' }} />
 
       <div className="container-x relative">

@@ -1,9 +1,11 @@
 import { personalProjects } from '../data/projects'
 import { ProjectCard } from './ProjectCard'
+import { useFadeIn } from '../hooks/useFadeIn'
 
 export function PersonalProjects() {
+  const ref = useFadeIn<HTMLElement>()
   return (
-    <section id="projects" className="relative py-20 md:py-28">
+    <section ref={ref} id="projects" className="relative py-20 md:py-28">
       <div className="container-x">
         <div className="text-center">
           <p className="accent-eyebrow mb-3">Side Quests</p>

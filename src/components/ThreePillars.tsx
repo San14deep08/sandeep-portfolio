@@ -62,9 +62,12 @@ const pillars = [
   },
 ]
 
+import { useFadeIn } from '../hooks/useFadeIn'
+
 export function ThreePillars() {
+  const ref = useFadeIn<HTMLElement>()
   return (
-    <section className="relative py-20 md:py-28">
+    <section ref={ref} className="relative py-20 md:py-28">
       <div className="container-x">
         <div className="text-center">
           <p className="accent-eyebrow mb-3">What I Bring</p>

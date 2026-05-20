@@ -1,6 +1,9 @@
 import { profile } from '../data/profile'
+import { useTypewriter } from '../hooks/useTypewriter'
 
 export function Hero() {
+  const { displayed, done } = useTypewriter(profile.headline.trailing, { delay: 500, speed: 46 })
+
   return (
     <section className="neural-grid relative overflow-hidden pb-24 pt-28 md:pb-32 md:pt-44">
       <div className="container-x relative">
@@ -11,7 +14,21 @@ export function Hero() {
         <h1 className="font-display text-5xl font-extrabold leading-[1.08] tracking-tight md:text-7xl lg:text-[84px]">
           <span className="text-fg">{profile.headline.leading}</span>
           <br />
-          <span className="gradient-text">{profile.headline.trailing}</span>
+          <span className="gradient-text">
+            {displayed}
+            {/* blinking cursor — hides once typing is done */}
+            <span
+              className="inline-block w-[3px] rounded-sm align-middle ml-1"
+              style={{
+                height: '0.8em',
+                background: 'linear-gradient(180deg,#a78bfa,#22d3ee)',
+                animation: done ? 'none' : 'blink 0.75s step-end infinite',
+                opacity: done ? 0 : 1,
+                transition: 'opacity 0.4s ease 0.6s',
+              }}
+              aria-hidden
+            />
+          </span>
         </h1>
 
         {/* Identity badge */}
@@ -36,6 +53,20 @@ export function Hero() {
                   strokeLinejoin="round"
                 />
               </svg>
+            </a>
+
+            {/* Resume download */}
+            <a
+              href="/resume.pdf"
+              download="Sandeep_Kumar_Mahto_Resume.pdf"
+              className="inline-flex w-fit items-center gap-2 text-sm text-fg-muted transition hover:text-mint"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download CV
             </a>
 
             <a

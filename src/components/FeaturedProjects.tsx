@@ -1,9 +1,11 @@
 import { featuredProjects } from '../data/projects'
 import { ProjectCard } from './ProjectCard'
+import { useFadeIn } from '../hooks/useFadeIn'
 
 export function FeaturedProjects() {
+  const ref = useFadeIn<HTMLElement>()
   return (
-    <section id="work" className="relative py-20 md:py-28">
+    <section ref={ref} id="work" className="relative py-20 md:py-28">
       <div className="container-x">
         <div className="text-center">
           <p className="accent-eyebrow mb-3">Featured Work</p>

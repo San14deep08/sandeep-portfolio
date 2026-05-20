@@ -26,9 +26,12 @@ const groups = [
   },
 ]
 
+import { useFadeIn } from '../hooks/useFadeIn'
+
 export function TechStack() {
+  const ref = useFadeIn<HTMLElement>()
   return (
-    <section id="skills" className="relative py-20 md:py-28">
+    <section ref={ref} id="skills" className="relative py-20 md:py-28">
       {/* Subtle bg */}
       <div className="absolute inset-0 -z-10" style={{ background: 'rgba(3,7,18,0.55)' }} />
 
