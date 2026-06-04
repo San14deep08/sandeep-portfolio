@@ -218,7 +218,7 @@ export function Gallery() {
           <div className="mt-14 flex flex-col items-center gap-4">
             <p className="font-mono text-xs text-fg-muted tracking-widest uppercase">Want to see more?</p>
             <a
-              href="https://www.instagram.com/mahto_sandeep54"
+              href="https://www.instagram.com/kumar_sandeep54"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-3 rounded-full px-7 py-3.5 font-semibold text-sm transition-all duration-300"
