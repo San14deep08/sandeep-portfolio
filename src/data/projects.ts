@@ -15,6 +15,18 @@ export type Project = {
 
 export const featuredProjects: Project[] = [
   {
+    slug: 'distributed-lovable',
+    title: 'Distributed Lovable — AI App Builder',
+    description:
+      'A Lovable.dev-style AI app builder on 6 Spring Boot microservices — Claude-powered code generation via Spring AI, JWT security with Feign token propagation, Kafka events, MinIO object storage — deployed on AWS with Docker, ECR, EC2, and RDS.',
+    tags: ['Java', 'Spring Boot', 'Microservices', 'Spring AI', 'Claude', 'Kafka', 'AWS', 'Docker'],
+    links: [
+      { label: 'Github', href: 'https://github.com/San14deep08/distributed-lovable', icon: 'github' },
+      { label: 'Live Demo', href: 'http://13.201.133.71:3000', icon: 'demo' },
+    ],
+    accent: 'from-emerald-100 to-sky-100',
+  },
+  {
     slug: 'javaforge',
     title: 'JavaForge Portfolio',
     description:
